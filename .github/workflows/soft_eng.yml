@@ -2,7 +2,8 @@ name: soft_eng
 
 on:
 	push:
-		branches: [$default-branch]
+		branches: 
+			- main
 
 jobs:
 	build:
@@ -13,7 +14,7 @@ jobs:
 	- uses: actions/checkout@v4
 
 	- name: MPI installation
-	  uses sudo apt-get install -y mpich
+	  run: sudo apt-get install -y mpich
 
 	- name: CMAKE installation
 	  run: sudo apt-get install -y cmake
@@ -27,4 +28,4 @@ jobs:
 
 	- name: test launch
 	  working-directory: ${{github.workspace}}/build
-	  run: ctest -C ${{env.BUILD_TYPE}}
+	  run: ./test_multiplication
