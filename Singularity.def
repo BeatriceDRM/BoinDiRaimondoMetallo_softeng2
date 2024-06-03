@@ -15,6 +15,7 @@ From: ubuntu:latest
 	mkdir build && cd build
 	cmake ..
 	make
+	find / -name "main" -type f -print
 	
 	# Set execute permissions for the main executable
     chmod +x main
