@@ -15,7 +15,7 @@ jobs:
          run: sudo apt-get install -y libopenmpi-dev
 
        - name: CMAKE installation
-         run: jwlawson/actions-setup-cmake@v1
+         uses: jwlawson/actions-setup-cmake@v1
        - name: Configure CMAKE
          run: cmake -S . -B build
        - name: Build
