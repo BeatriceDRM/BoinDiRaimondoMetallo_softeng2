@@ -63,3 +63,11 @@ jobs:
 
 	- name: Install sshpass
 	 run: sudo apt-get update && sudo apt-get install -y sshpass
+
+	- name: Transfer stuff via SCP
+		run: |
+			sshpass -p "${{secrets.SSH_PRIVATE_KEY}}" scp -o StrictHostKeyChecking=no matr.sif monitor.py matrixA.txt matrixB.txt
+	- name: Run job via SSH
+		run: |
+			ssh-keygen -f "/home/runner/.ssh/known_hosts" -R "login.g100.cineca.it"
+			sshpass -p "${{ secrets.SSH_PRIVATE_KEY }}" ssh -o StrictHostKeyChecking=no a08trb41@login.g100.cineca.it

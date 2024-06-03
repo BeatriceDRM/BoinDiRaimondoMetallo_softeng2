@@ -8,8 +8,7 @@ From: ubuntu:latest
 	git
 
 	# clone the repo of the project
-	git clone https://github.com/BeatriceDRM/BoinDiRaimondoMetallo_softeng2.git
-	with --recurse-submodules
+	git clone https://github.com/BeatriceDRM/BoinDiRaimondoMetallo_softeng2 --recurse -submodules
 
 	# compile the project
 	cd BoinDiRaimondoMetallo_softeng2
@@ -19,4 +18,4 @@ From: ubuntu:latest
 
 
 %runscript
-	./test_multiplication
+	./main
