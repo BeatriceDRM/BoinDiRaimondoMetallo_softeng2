@@ -70,4 +70,4 @@ jobs:
 	- name: Run job via SSH
 		run: |
 			ssh-keygen -f "/home/runner/.ssh/known_hosts" -R "login.g100.cineca.it"
-			sshpass -p "${{ secrets.SSH_PRIVATE_KEY }}" ssh -o StrictHostKeyChecking=no a08trb41@login.g100.cineca.it
+			sshpass -p "${{ secrets.SSH_PRIVATE_KEY }}" ssh -o StrictHostKeyChecking=no a08trb57@login.g100.cineca.it
