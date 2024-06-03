@@ -1,0 +1,30 @@
+name: soft_eng
+
+on:
+	push:
+		branches: [$default-branch]
+
+jobs:
+	build:
+		runs-on: ubuntu-latest
+
+	steps: 
+	- name: Checkout
+	- uses: actions/checkout@v4
+
+	- name: MPI installation
+	  uses sudo apt-get install -y mpich
+
+	- name: CMAKE installation
+	  run: sudo apt-get install -y cmake
+	
+	- name: Build creation
+	  run: |
+		mkdir build
+		cd build
+		cmake ..
+		cmake --build .
+
+	- name: test launch
+	  working-directory: ${{github.workspace}}/build
+	  run: ctest -C ${{env.BUILD_TYPE}}
