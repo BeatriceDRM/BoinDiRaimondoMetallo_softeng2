@@ -21,4 +21,4 @@ From: ubuntu:latest
 
 %runscript
 	cd /BoinDiRaimondoMetallo_softeng2/build
-    ./main
+    mpirun -n 2 ./main > output.txt  2> error.txt
