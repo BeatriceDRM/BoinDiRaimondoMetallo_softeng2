@@ -15,10 +15,10 @@ From: ubuntu:latest
 	mkdir build && cd build
 	cmake ..
 	make
-	find / -name "main" -type f -print -noleaf
 	
 	# Set execute permissions for the main executable
     chmod +x main
 
 %runscript
-	./main
+	cd /BoinDiRaimondoMetallo_softeng2/build
+    ./main
