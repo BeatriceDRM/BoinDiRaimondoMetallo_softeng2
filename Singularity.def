@@ -15,7 +15,9 @@ From: ubuntu:latest
 	mkdir build && cd build
 	cmake ..
 	make
-
+	
+	# Set execute permissions for the main executable
+    chmod +x main
 
 %runscript
 	./main
