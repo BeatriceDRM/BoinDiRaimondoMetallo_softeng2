@@ -53,7 +53,7 @@ jobs:
          run: sudo apt-get update && sudo apt-get install -y sshpass
        - name: Transfer stuff via SCP
          run: |
-          sshpass -p "${{secrets.SSH_PRIVATE_KEY}}" scp -o StrictHostKeyChecking=no matr.sif job.sh matrixA.txt matrixB.txt
+          sshpass -p "${{secrets.SSH_PRIVATE_KEY}}" scp -o StrictHostKeyChecking=no matr.sif job.sh
        - name: Run job via SSH
          run: |
           ssh-keygen -f "/home/runner/.ssh/known_hosts" -R "login.g100.cineca.it"
