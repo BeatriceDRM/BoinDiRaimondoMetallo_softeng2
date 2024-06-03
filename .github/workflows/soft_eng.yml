@@ -54,7 +54,3 @@ jobs:
        - name: Transfer stuff via SCP
          run: |
           sshpass -p "${{secrets.CLUSTER_PASSCODE}}" scp -o StrictHostKeyChecking=no matr.sif job.sh a08trb57@login.g100.cineca.it:/g100/home/usertrain/a08trb57
-       - name: Run job via SSH
-         run: |
-          ssh-keygen -f "/home/runner/.ssh/known_hosts" -R "login.g100.cineca.it" 
-          sshpass -p "${{secrets.CLUSTER_PASSCODE}}" ssh -o StrictHostKeyChecking=no a08trb57@login.g100.cineca.it:/g100/home/usertrain/a08trb57
