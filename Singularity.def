@@ -1,4 +1,4 @@
-cBootstrap: docker
+Bootstrap: docker
 From: ubuntu:latest
 
 %post
