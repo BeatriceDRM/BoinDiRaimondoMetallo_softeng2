@@ -46,8 +46,7 @@ jobs:
           zlib1g-dev
        - name: Install singularity
          run:
-          wget https://github.com/sylabs/singularity/releases/download/v4.1.3/singularity-ce_4.1.3-jammy_amd64.deb
-          sudo dpkg -i singularity-ce_4.1.3-jammy_amd64.deb 
+          wget https://github.com/sylabs/singularity/releases/download/v4.1.3/singularity-ce_4.1.3-jammy_amd64.deb && sudo dpkg -i singularity-ce_4.1.3-jammy_amd64.deb 
        - name: Build Singularity
          run: sudo singularity build matr.sif Singularity.def
        - name: Install sshpass
