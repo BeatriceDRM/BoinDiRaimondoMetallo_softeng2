@@ -11,13 +11,15 @@ jobs:
 
 	steps: 
 	- name: Checkout
-	- uses: actions/checkout@v4
+	- uses: actions/checkout@v2
+	with:
+		submodules: true
 
 	- name: MPI installation
-	  run: sudo apt-get install -y mpich
+	  run: sudo apt-get install -y libopenmpi-dev
 
 	- name: CMAKE installation
-	  run: sudo apt-get install -y cmake
+	  run: jwlawson/actions-setup-cmake@v1
 	
 	- name: Build creation
 	  run: |

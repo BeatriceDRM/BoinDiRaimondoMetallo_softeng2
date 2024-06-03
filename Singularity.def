@@ -1,4 +1,4 @@
-Bootstrap: docker
+cBootstrap: docker
 From: ubuntu:20.04
 
 %post
