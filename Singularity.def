@@ -20,5 +20,8 @@ From: ubuntu:latest
     chmod +x main
 
 %runscript
-	cd /BoinDiRaimondoMetallo_softeng2/build
+	cd /BoinDiRaimondoMetallo_softeng2
+	mv matrixA.txt build
+	mv matrixB.txt build
+	cd build
     mpirun -n 2 ./main
