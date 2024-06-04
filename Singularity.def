@@ -18,7 +18,8 @@ From: ubuntu:latest
 	
 	# Set execute permissions for the main executable
     chmod +x main
-
+	
+	cd ..
 	mv matrixA.txt build
 	mv matrixB.txt build
 
