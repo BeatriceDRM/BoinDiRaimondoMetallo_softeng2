@@ -1,5 +1,5 @@
 Bootstrap: docker
-From: pcafrica/mk
+From: ubuntu:latest
 
 %post
 	apt-get update && apt-get install -y cmake \
