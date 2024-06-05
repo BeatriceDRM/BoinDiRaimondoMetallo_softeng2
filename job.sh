@@ -1,8 +1,8 @@
 #!/bin/bash
 
 #SBATCH --job-name=my_job
-#SBATCH --output=output.txt
-#SBATCH --error=error.txt
+#SBATCH --output=soutput.txt
+#SBATCH --error=serror.txt
 #SBATCH --ntasks=2
 #SBATCH --cpus-per-task=1
 
