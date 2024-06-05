@@ -25,4 +25,4 @@ From: ubuntu:latest
 
 %runscript
 	cd /BoinDiRaimondoMetallo_softeng2/build
-    mpirun -n 2 ./main
+    mpirun -np 2 ./main
