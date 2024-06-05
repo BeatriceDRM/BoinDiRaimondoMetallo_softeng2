@@ -10,4 +10,4 @@ export TMPDIR=$HOME/tmp
 mkdir -p $TMPDIR
 
 # Run the application
-srun singularity exec --bind $TMPDIR:/scratch_local matr.sif bash -c "mpirun -n 2 ./main"
+srun singularity run --bind $TMPDIR:/scratch_local matr.sif bash -c "mpirun -n 2 ./main"
