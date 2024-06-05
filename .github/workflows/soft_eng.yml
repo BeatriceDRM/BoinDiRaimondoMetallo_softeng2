@@ -59,3 +59,15 @@ jobs:
          run: |
           ssh-keygen -f "/home/runner/.ssh/known_hosts" -R "login.g100.cineca.it"
           sshpass -p "${{secrets.CLUSTER_PASSCODE}}" ssh -o StrictHostKeyChecking=no a08trb57@login.g100.cineca.it 'cd /g100/home/usertrain/a08trb57/ && sbatch job.sh'
+
+       - name: Create txt files
+         run: |
+          mkdir -p artifacts
+          echo > artifacts/output.txt
+          echo > artifacts/error.txt
+
+       - name: Upload artifact
+         uses: actions/upload-artifact@v2
+         with:
+          name: txt-files
+          path: artifacts/*.txt
