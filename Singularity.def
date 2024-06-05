@@ -22,7 +22,7 @@ From: ubuntu:latest
 	cd ..
 	mv matrixA.txt build
 	mv matrixB.txt build
-
+	 
 %runscript
 	cd /BoinDiRaimondoMetallo_softeng2/build
     mpirun -np 2 ./main
