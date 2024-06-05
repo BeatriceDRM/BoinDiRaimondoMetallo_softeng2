@@ -1,17 +1,9 @@
 # SE4HPCproject
 
 Our project satisfies all the requests correctly. 
-The only problem we have encountered was related to how the files output.txt and error.txt could be automatically exported from the cluster.
 
-In order to solve this problem, we tried to use the following commands:
+Furthermore, we have been able to upload the two files .txt (respectively output.txt and error.txt) using an artifact.
+As a result, in txtFilesAction, you can see the two .txt created by the action "Upload the files".
+Inside txtFiles, you can see the .txt obtained by copy.
 
-- name: Transfer files from cluster
-  run: |
-    ssh-keygen -f "/home/runner/.ssh/known_hosts" -R "login.g100.cineca.it"
-    sshpass -p "${{secrets.CLUSTER_PASSCODE}}" scp -o StrictHostKeyChecking=no a08trb57@login.g100.cineca.it:/g100/home/usertrain/a08trb57/output.txt ~
-    ssh-keygen -f "/home/runner/.ssh/known_hosts" -R "login.g100.cineca.it"
-    sshpass -p "${{secrets.CLUSTER_PASSCODE}}" scp -o StrictHostKeyChecking=no a08trb57@login.g100.cineca.it:/g100/home/usertrain/a08trb57/error.txt ~
-    cd
-    cat output.txt
-
-Although the action worked correctly, without giving any type of error, we were not able to find a proper solution, so we manually transfered the files.
+These two folders are both present because, in this way, we were able to make a comparison and to be sure that the result was correct.
