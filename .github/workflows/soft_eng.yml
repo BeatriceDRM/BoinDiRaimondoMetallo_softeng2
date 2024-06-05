@@ -69,7 +69,6 @@ jobs:
           sshpass -p "${{secrets.CLUSTER_PASSCODE}}" scp -o StrictHostKeyChecking=no a08trb57@login.g100.cineca.it:/g100/home/usertrain/a08trb57/output.txt ${{github.workspace}}/artifacts/
           sshpass -p "${{secrets.CLUSTER_PASSCODE}}" scp -o StrictHostKeyChecking=no a08trb57@login.g100.cineca.it:/g100/home/usertrain/a08trb57/error.txt ${{github.workspace}}/artifacts/
   
-
        - name: Upload artifact
          uses: actions/upload-artifact@v2
          with:
