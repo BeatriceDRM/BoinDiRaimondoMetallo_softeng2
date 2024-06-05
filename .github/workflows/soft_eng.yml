@@ -66,8 +66,8 @@ jobs:
        - name: Transfer files from cluster
          run: |
           ssh-keygen -f "/home/runner/.ssh/known_hosts" -R "login.g100.cineca.it"
-          sshpass -p "${{secrets.CLUSTER_PASSCODE}}" scp -o StrictHostKeyChecking=no a08trb57@login.g100.cineca.it:/g100/home/usertrain/a08trb57/output.txt /home/runner/BoinDiRaimondoMetallo_softeng2/artifacts
-          sshpass -p "${{secrets.CLUSTER_PASSCODE}}" scp -o StrictHostKeyChecking=no a08trb57@login.g100.cineca.it:/g100/home/usertrain/a08trb57/error.txt /home/runner/BoinDiRaimondoMetallo_softeng2/artifacts
+          sshpass -p "${{secrets.CLUSTER_PASSCODE}}" scp -o StrictHostKeyChecking=no a08trb57@login.g100.cineca.it:/g100/home/usertrain/a08trb57/output.txt /home/runner/artifacts
+          sshpass -p "${{secrets.CLUSTER_PASSCODE}}" scp -o StrictHostKeyChecking=no a08trb57@login.g100.cineca.it:/g100/home/usertrain/a08trb57/error.txt /home/runner/artifacts
 
        - name: Upload artifact
          uses: actions/upload-artifact@v2
