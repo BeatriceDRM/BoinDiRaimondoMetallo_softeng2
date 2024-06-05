@@ -58,11 +58,15 @@ jobs:
        - name: Transfer stuff via SCP
          run: |
           sshpass -p "${{secrets.CLUSTER_PASSCODE}}" scp -o StrictHostKeyChecking=no matr.sif job.sh a08trb57@login.g100.cineca.it:/g100/home/usertrain/a08trb57
+
        - name: Run job
          run: |
           ssh-keygen -f "/home/runner/.ssh/known_hosts" -R "login.g100.cineca.it"
           sshpass -p "${{secrets.CLUSTER_PASSCODE}}" ssh -o StrictHostKeyChecking=no a08trb57@login.g100.cineca.it 'cd /g100/home/usertrain/a08trb57/ && sbatch job.sh'
-
+    
+       - name: Wait for Job Completion
+         run: |
+            sleep 60  # It's necessary to wait for the job to complete
 
        - name: Transfer files from cluster
          run: |
@@ -72,4 +76,13 @@ jobs:
           sshpass -p "${{secrets.CLUSTER_PASSCODE}}" scp -o StrictHostKeyChecking=no a08trb57@login.g100.cineca.it:/g100/home/usertrain/a08trb57/error.txt ~
           cd
           cat output.txt
+          mv ~/output.txt /home/runner/work/BoinDiRaimondoMetallo_softeng2/BoinDiRaimondoMetallo_softeng2
+          mv ~/error.txt /home/runner/work/BoinDiRaimondoMetallo_softeng2/BoinDiRaimondoMetallo_softeng2
       
+       - name: Upload the files
+         uses: actions/upload-artifact@v3
+         with:
+              name: txtFilesAction
+              path: |
+                /home/runner/work/BoinDiRaimondoMetallo_softeng2/BoinDiRaimondoMetallo_softeng2/output.txt
+                /home/runner/work/BoinDiRaimondoMetallo_softeng2/BoinDiRaimondoMetallo_softeng2/error.txt
